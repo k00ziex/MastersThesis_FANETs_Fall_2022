@@ -1,12 +1,13 @@
 import sys
 from socket import socket, AF_INET, SOCK_DGRAM
+from time import sleep
 
-SERVER_IP   = '10.1.0.6'
-PORT_NUMBER = 5000
-SIZE = 1024
+SERVER_IP   = '10.1.0.150'
+PORT_NUMBER = 5500
 print ("Test client sending packets to IP {0}, via port {1}\n".format(SERVER_IP, PORT_NUMBER))
 
 mySocket = socket( AF_INET, SOCK_DGRAM )
 
 while True:
-        mySocket.sendto('Hello There',(SERVER_IP,PORT_NUMBER))
+    sleep(3)
+    mySocket.sendto('Hello There'.encode(),(SERVER_IP,PORT_NUMBER))
