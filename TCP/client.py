@@ -2,7 +2,7 @@
 
 import socket
 
-HOST = "10.1.0.25"  # The server's hostname or IP address
+HOST = "10.1.0.100"  # The server's hostname or IP address
 PORT = 5005  # The port used by the server
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:

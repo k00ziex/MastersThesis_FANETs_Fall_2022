@@ -1,8 +1,8 @@
 from socket import socket, gethostbyname, AF_INET, SOCK_DGRAM
-PORT_NUMBER = 5500
+PORT_NUMBER = 5005
 SIZE = 1024
 
-hostName = gethostbyname( '10.1.0.101' )
+hostName = gethostbyname( '10.1.0.25' )
 
 mySocket = socket( AF_INET, SOCK_DGRAM )
 mySocket.bind( (hostName, PORT_NUMBER) )
