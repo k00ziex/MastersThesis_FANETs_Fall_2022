@@ -1,65 +1,117 @@
-# $1 = Do we want ping information?
-# $2 = Do we want Goodput/Throughput?
-# $3 = Do we want RSSI?
-# $4 = Do we want latency?
-# $5 = Do we want Meshmerize commands?
+# $1 = Do we want to output to file?
+# $2 = Do we want ping information?
+# $3 = Do we want Goodput/Throughput?
+# $4 = Do we want RSSI?
+# $5 = Do we want latency?
+# $6 = Do we want Meshmerize commands?
 
-path = "$(/root/logfiles/experiment_results.txt)"
+echo "____________________________START_______________________________" > /root/logfiles/results.txt
 
-if [ ! -d "$path" ]
-then
-    echo "File doesn't exist. Creating now"
-    mkdir $path
-    echo "File created"
-else
-    echo "File exists"
-fi
-
+i=0
 ############## RTT ####################
-# $6 = number of packets in ping command
 # $7 = ip of destination
+# $8 = number of packets in ping command
 
-if [ $1 == 'true' ]
+if [ $2 == 'true' ]
 then
-    ping_output="$(ping -c $6 $7)"
-    echo $ping_output
+    ping_output="$(ping -c $8 $7)"
+
+    if [ $1 == 'true' ]
+    then
+        echo $ping_output >> /root/logfiles/results.txt
+    else
+        echo $ping_output
+    fi
 fi
+echo "________________________________________________________________" >> /root/logfiles/results.txt
 
 ############## Throughput/Goodput ####################
 # $8 = ip of server host
 
-if [ $2 == 'true' ]
-then
-    # Do iperf3 here
-    throughput_output="$(iperf3 -c $8 --get-server-ouput)"
-    echo $throughput_output
-fi
-
-############## RSSI ####################
 if [ $3 == 'true' ]
 then
-    rssi_output="$(iw wlan0 station dump)"
-    echo $rssi_output
+    if [ $1 == 'true' ]
+    then
+        throughput_output="$(iperf3 -c $7 -t 10 --get-server-output --logfile /root/logfiles/iperf_results.txt)"
+        echo "SEE iperf_results.txt FOR OUTPUT" >> /root/logfiles/results.txt
+    else
+        throughput_output="$(iperf3 -c $7 -t 10 --get-server-output)"
+        echo $throughput_output
+    fi
 fi
+echo "________________________________________________________________" >> /root/logfiles/results.txt
 
-############## Latency ####################
+############## RSSI ####################
 if [ $4 == 'true' ]
 then
-    # Do UDP stuff here?
-    latency_output=1
-    echo $latency_output
+    while [ $i -lt $9 ]
+    do
+        rssi_output="$(iw wlan0 station dump)"
+
+        if [ $1 == 'true' ]
+        then
+            echo $rssi_output >> /root/logfiles/results.txt
+        else
+            echo $rssi_output
+        fi
+        i=$(($i+1))
+        sleep 1
+    done
+    i=0
 fi
+echo "________________________________________________________________" >> /root/logfiles/results.txt
+
+############## Latency ####################
+if [ $5 == 'true' ]
+then
+    # Do UDP stuff here? While loop here?
+    latency_output=1
+
+    if [ $1 == 'true' ]
+    then
+        echo $latency_output >> /root/logfiles/results.txt
+    else
+        echo $latency_output
+    fi
+fi
+echo "________________________________________________________________" >> /root/logfiles/results.txt
 
 ############## Meshmerize Originator ####################
-if [ $5 == 'true' ]
+if [ $6 == 'true' ]
 then
-    originator_output="$(meshmerize originator)"
-    echo $originator_output
+    while [ $i -lt $9 ]
+    do
+        originator_output="$(meshmerize originator)"
+        
+        if [ $1 == 'true' ]
+        then
+            echo $originator_output >> /root/logfiles/results.txt
+        else
+            echo $originator_output
+        fi
+        i=$(($i+1))
+        sleep 1
+    done
+    i=0
 fi
+echo "________________________________________________________________" >> /root/logfiles/results.txt
 
 ############## Meshmerize Neighbor ####################
-if [ $5 == 'true' ]
+if [ $6 == 'true' ]
 then
-    neighbor_output="$(meshmerize neighbor)"
-    echo $neighbor_output
+    while [ $i -lt $9 ]
+    do
+        neighbor_output="$(meshmerize neighbor)"
+
+        if [ $1 == 'true' ]
+        then
+            echo $neighbor_output >> /root/logfiles/results.txt
+        else
+            echo $neighbor_output
+        fi
+        i=$(($i+1))
+        sleep 1
+    done
+    i=0
 fi
+echo "___________________________END__________________________________" >> /root/logfiles/results.txt
