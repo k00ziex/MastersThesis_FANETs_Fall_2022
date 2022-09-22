@@ -4,6 +4,17 @@
 # $4 = Do we want latency?
 # $5 = Do we want Meshmerize commands?
 
+path = "$(/root/logfiles/experiment_results.txt)"
+
+if [ ! -d "$path" ]
+then
+    echo "File doesn't exist. Creating now"
+    mkdir $path
+    echo "File created"
+else
+    echo "File exists"
+fi
+
 ############## RTT ####################
 # $6 = number of packets in ping command
 # $7 = ip of destination
@@ -15,10 +26,12 @@ then
 fi
 
 ############## Throughput/Goodput ####################
+# $8 = ip of server host
+
 if [ $2 == 'true' ]
 then
     # Do iperf3 here
-    throughput_output=1
+    throughput_output="$(iperf3 -c $8 --get-server-ouput)"
     echo $throughput_output
 fi
 
