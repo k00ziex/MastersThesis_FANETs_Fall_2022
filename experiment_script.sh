@@ -2,19 +2,18 @@
 # $2 = Do we want ping information?
 # $3 = Do we want Goodput/Throughput?
 # $4 = Do we want RSSI?
-# $5 = Do we want latency?
-# $6 = Do we want Meshmerize commands?
+# $5 = Do we want Meshmerize commands?
 
 echo "____________________________START_______________________________" > /root/logfiles/results.txt
 
 i=0
 ############## RTT ####################
-# $7 = ip of destination
-# $8 = number of packets in ping command
+# $6 = ip of destination
+# $7 = number of packets in ping command
 
 if [ $2 == 'true' ]
 then
-    ping_output="$(ping -c $8 $7)"
+    ping_output="$(ping -c $7 $6)"
 
     if [ $1 == 'true' ]
     then
@@ -26,16 +25,15 @@ fi
 echo "________________________________________________________________" >> /root/logfiles/results.txt
 
 ############## Throughput/Goodput ####################
-# $8 = ip of server host
 
 if [ $3 == 'true' ]
 then
     if [ $1 == 'true' ]
     then
-        throughput_output="$(iperf3 -c $7 -t 10 --get-server-output --logfile /root/logfiles/iperf_results.txt)"
+        throughput_output="$(iperf3 -c $6 -t 10 --get-server-output --logfile /root/logfiles/iperf_results.txt)"
         echo "SEE iperf_results.txt FOR OUTPUT" >> /root/logfiles/results.txt
     else
-        throughput_output="$(iperf3 -c $7 -t 10 --get-server-output)"
+        throughput_output="$(iperf3 -c $6 -t 10 --get-server-output)"
         echo $throughput_output
     fi
 fi
@@ -44,7 +42,7 @@ echo "________________________________________________________________" >> /root
 ############## RSSI ####################
 if [ $4 == 'true' ]
 then
-    while [ $i -lt $9 ]
+    while [ $i -lt $8 ]
     do
         rssi_output="$(iw wlan0 station dump)"
 
@@ -61,25 +59,10 @@ then
 fi
 echo "________________________________________________________________" >> /root/logfiles/results.txt
 
-############## Latency ####################
+############## Meshmerize Originator ####################
 if [ $5 == 'true' ]
 then
-    # Do UDP stuff here? While loop here?
-    latency_output=1
-
-    if [ $1 == 'true' ]
-    then
-        echo $latency_output >> /root/logfiles/results.txt
-    else
-        echo $latency_output
-    fi
-fi
-echo "________________________________________________________________" >> /root/logfiles/results.txt
-
-############## Meshmerize Originator ####################
-if [ $6 == 'true' ]
-then
-    while [ $i -lt $9 ]
+    while [ $i -lt $8 ]
     do
         originator_output="$(meshmerize originator)"
         
@@ -97,9 +80,9 @@ fi
 echo "________________________________________________________________" >> /root/logfiles/results.txt
 
 ############## Meshmerize Neighbor ####################
-if [ $6 == 'true' ]
+if [ $5 == 'true' ]
 then
-    while [ $i -lt $9 ]
+    while [ $i -lt $8 ]
     do
         neighbor_output="$(meshmerize neighbor)"
 
