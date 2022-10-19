@@ -64,7 +64,7 @@ if [ $5 == 'true' ]
 then
     while [ $i -lt $8 ]
     do
-        originator_output="$(meshmerize originator)"
+        originator_output="$(meshmerize route)"
         
         if [ $1 == 'true' ]
         then
@@ -84,7 +84,7 @@ if [ $5 == 'true' ]
 then
     while [ $i -lt $8 ]
     do
-        neighbor_output="$(meshmerize neighbor)"
+        neighbor_output="$(meshmerize link)"
 
         if [ $1 == 'true' ]
         then
