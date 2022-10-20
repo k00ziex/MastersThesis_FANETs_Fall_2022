@@ -5,13 +5,11 @@
 
 echo "____________________________START_______________________________" > /root/logfiles/results.txt
 
-i=0
 interval=0
-sleep_interval=
 ############## RTT ####################
 # $5 = ip of destination
 # $6 = number of packets in ping command
-while [ $interval -lt $8 ]
+while [ $interval -lt $7 ]
 do
     if [ $2 == 'true' ]
     then
@@ -24,67 +22,49 @@ do
             echo $ping_output
         fi
     fi
-    echo "________________________________________________________________" >> /root/logfiles/results.txt
-
+    echo "----------------------------------------------------------------" >> /root/logfiles/results.txt
 
     ############## RSSI ####################
     if [ $3 == 'true' ]
     then
-        while [ $i -lt $7 ]
-        do
-            rssi_output="$(iw wlan0 station dump)"
+        rssi_output="$(iw wlan0 station dump)"
 
-            if [ $1 == 'true' ]
-            then
-                echo $rssi_output >> /root/logfiles/results.txt
-            else
-                echo $rssi_output
-            fi
-            i=$(($i+1))
-            sleep 1
-        done
-        i=0
+        if [ $1 == 'true' ]
+        then
+            echo $rssi_output >> /root/logfiles/results.txt
+        else
+            echo $rssi_output
+        fi
     fi
-    echo "________________________________________________________________" >> /root/logfiles/results.txt
+    echo "----------------------------------------------------------------" >> /root/logfiles/results.txt
 
     ############## Meshmerize Originator ####################
     if [ $4 == 'true' ]
     then
-        while [ $i -lt $7 ]
-        do
-            originator_output="$(meshmerize route)"
+        originator_output="$(meshmerize route)"
             
-            if [ $1 == 'true' ]
-            then
-                echo $originator_output >> /root/logfiles/results.txt
-            else
-                echo $originator_output
-            fi
-            i=$(($i+1))
-            sleep 1
-        done
-        i=0
+        if [ $1 == 'true' ]
+        then
+            echo $originator_output >> /root/logfiles/results.txt
+        else
+            echo $originator_output
+        fi
     fi
-    echo "________________________________________________________________" >> /root/logfiles/results.txt
+    echo "----------------------------------------------------------------" >> /root/logfiles/results.txt
 
     ############## Meshmerize Neighbor ####################
     if [ $4 == 'true' ]
     then
-        while [ $i -lt $7 ]
-        do
-            neighbor_output="$(meshmerize link)"
+        neighbor_output="$(meshmerize link)"
 
-            if [ $1 == 'true' ]
-            then
-                echo $neighbor_output >> /root/logfiles/results.txt
-            else
-                echo $neighbor_output
-            fi
-            i=$(($i+1))
-            sleep 1
-        done
-        i=0
+        if [ $1 == 'true' ]
+        then
+            echo $neighbor_output >> /root/logfiles/results.txt
+        else
+            echo $neighbor_output
+        fi
     fi
     echo "___________________________END__________________________________" >> /root/logfiles/results.txt
     interval=$(($interval+1))
+    sleep 1
 done
