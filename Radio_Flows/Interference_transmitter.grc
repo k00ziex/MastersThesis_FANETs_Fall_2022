@@ -125,7 +125,7 @@ blocks:
     phase: '0'
     samp_rate: samp_rate
     type: float
-    waveform: analog.GR_COS_WAVE
+    waveform: analog.GR_SAW_WAVE
   states:
     bus_sink: false
     bus_source: false
@@ -462,7 +462,7 @@ blocks:
     bus_structure: null
     coordinate: [1088, 400.0]
     rotation: 0
-    state: true
+    state: disabled
 
 connections:
 - [analog_nbfm_tx_0, '0', low_pass_filter_0, '0']

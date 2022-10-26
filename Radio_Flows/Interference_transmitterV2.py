@@ -28,6 +28,7 @@ import sip
 from gnuradio import analog
 from gnuradio import blocks
 from gnuradio import channels
+from gnuradio import filter
 from gnuradio import gr
 from gnuradio.fft import window
 import sys
@@ -78,14 +79,14 @@ class Interference_transmitterV2(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.tuning = tuning = 2462000000
+        self.tuning = tuning = 2450000000
         self.samp_rate = samp_rate = 20000
         self.rf_gain = rf_gain = 20
 
         ##################################################
         # Blocks
         ##################################################
-        self._tuning_range = Range(2400000000, 2500000000, 200000, 2462000000, 200)
+        self._tuning_range = Range(2400000000, 2500000000, 200000, 2450000000, 200)
         self._tuning_win = GrRangeWidget(self._tuning_range, self.set_tuning, "Frequency", "counter_slider", float, QtCore.Qt.Horizontal, "value")
 
         self.top_layout.addWidget(self._tuning_win)
@@ -115,19 +116,32 @@ class Interference_transmitterV2(gr.top_block, Qt.QWidget):
         self.qtgui_sink_x_0.enable_rf_freq(True)
 
         self.top_layout.addWidget(self._qtgui_sink_x_0_win)
-        self.channels_phase_noise_gen_0 = channels.phase_noise_gen(1, 0.5)
+        self.channels_phase_noise_gen_0 = channels.phase_noise_gen(0, 0.1)
         self.blocks_add_xx_0 = blocks.add_vcc(1)
-        self.analog_noise_source_x_0 = analog.noise_source_c(analog.GR_UNIFORM, 1, 0)
+        self.band_pass_filter_0 = filter.fir_filter_ccf(
+            1,
+            firdes.band_pass(
+                1,
+                48000,
+                1,
+                14000,
+                1,
+                window.WIN_HAMMING,
+                6.76))
+        self.analog_sig_source_x_0 = analog.sig_source_c(48000, analog.GR_SQR_WAVE, 20000, 1, 0, 0)
+        self.analog_noise_source_x_0 = analog.noise_source_c(analog.GR_GAUSSIAN, 1, 0)
         self.analog_fastnoise_source_x_0 = analog.fastnoise_source_c(analog.GR_GAUSSIAN, 1, 0, 8192)
 
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.analog_fastnoise_source_x_0, 0), (self.blocks_add_xx_0, 0))
-        self.connect((self.analog_noise_source_x_0, 0), (self.channels_phase_noise_gen_0, 0))
-        self.connect((self.blocks_add_xx_0, 0), (self.qtgui_sink_x_0, 0))
-        self.connect((self.channels_phase_noise_gen_0, 0), (self.blocks_add_xx_0, 1))
+        self.connect((self.analog_fastnoise_source_x_0, 0), (self.channels_phase_noise_gen_0, 0))
+        self.connect((self.analog_noise_source_x_0, 0), (self.blocks_add_xx_0, 1))
+        self.connect((self.analog_sig_source_x_0, 0), (self.blocks_add_xx_0, 0))
+        self.connect((self.band_pass_filter_0, 0), (self.qtgui_sink_x_0, 0))
+        self.connect((self.blocks_add_xx_0, 0), (self.band_pass_filter_0, 0))
+        self.connect((self.channels_phase_noise_gen_0, 0), (self.blocks_add_xx_0, 2))
 
 
     def closeEvent(self, event):

@@ -34,8 +34,6 @@ import signal
 from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
-from gnuradio import uhd
-import time
 from gnuradio.qtgui import Range, GrRangeWidget
 from PyQt5 import QtCore
 
@@ -90,21 +88,6 @@ class Interference_transmitter(gr.top_block, Qt.QWidget):
         self._tuning_win = GrRangeWidget(self._tuning_range, self.set_tuning, "Frequency", "counter_slider", float, QtCore.Qt.Horizontal, "value")
 
         self.top_layout.addWidget(self._tuning_win)
-        self.uhd_usrp_sink_0 = uhd.usrp_sink(
-            ",".join(("", '')),
-            uhd.stream_args(
-                cpu_format="fc32",
-                args='',
-                channels=list(range(0,1)),
-            ),
-            "",
-        )
-        self.uhd_usrp_sink_0.set_samp_rate(samp_rate)
-        self.uhd_usrp_sink_0.set_time_unknown_pps(uhd.time_spec(0))
-
-        self.uhd_usrp_sink_0.set_center_freq(0, 0)
-        self.uhd_usrp_sink_0.set_antenna("TX/RX", 0)
-        self.uhd_usrp_sink_0.set_gain(0, 0)
         self._rf_gain_range = Range(0, 76, 1, 50, 200)
         self._rf_gain_win = GrRangeWidget(self._rf_gain_range, self.set_rf_gain, "RF Gain", "counter_slider", float, QtCore.Qt.Horizontal, "value")
 
@@ -136,7 +119,7 @@ class Interference_transmitter(gr.top_block, Qt.QWidget):
                 2000,
                 window.WIN_HAMMING,
                 6.76))
-        self.analog_sig_source_x_0 = analog.sig_source_f(samp_rate, analog.GR_COS_WAVE, tuning, 1, 0, 0)
+        self.analog_sig_source_x_0 = analog.sig_source_f(samp_rate, analog.GR_SAW_WAVE, tuning, 1, 0, 0)
         self.analog_nbfm_tx_0 = analog.nbfm_tx(
         	audio_rate=samp_rate,
         	quad_rate=576000,
@@ -152,7 +135,6 @@ class Interference_transmitter(gr.top_block, Qt.QWidget):
         self.connect((self.analog_nbfm_tx_0, 0), (self.low_pass_filter_0, 0))
         self.connect((self.analog_sig_source_x_0, 0), (self.analog_nbfm_tx_0, 0))
         self.connect((self.low_pass_filter_0, 0), (self.qtgui_sink_x_0, 0))
-        self.connect((self.low_pass_filter_0, 0), (self.uhd_usrp_sink_0, 0))
 
 
     def closeEvent(self, event):
@@ -179,7 +161,6 @@ class Interference_transmitter(gr.top_block, Qt.QWidget):
         self.analog_sig_source_x_0.set_sampling_freq(self.samp_rate)
         self.low_pass_filter_0.set_taps(firdes.low_pass(1, self.samp_rate, 5000, 2000, window.WIN_HAMMING, 6.76))
         self.qtgui_sink_x_0.set_frequency_range(self.tuning, self.samp_rate)
-        self.uhd_usrp_sink_0.set_samp_rate(self.samp_rate)
 
     def get_rf_gain(self):
         return self.rf_gain
