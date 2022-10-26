@@ -121,16 +121,16 @@ class Interference_transmitterV2(gr.top_block, Qt.QWidget):
         self.band_pass_filter_0 = filter.fir_filter_ccf(
             1,
             firdes.band_pass(
-                1,
+                4,
                 48000,
                 1,
                 14000,
                 1,
                 window.WIN_HAMMING,
                 6.76))
-        self.analog_sig_source_x_0 = analog.sig_source_c(48000, analog.GR_SQR_WAVE, 20000, 1, 0, 0)
-        self.analog_noise_source_x_0 = analog.noise_source_c(analog.GR_GAUSSIAN, 1, 0)
-        self.analog_fastnoise_source_x_0 = analog.fastnoise_source_c(analog.GR_GAUSSIAN, 1, 0, 8192)
+        self.analog_sig_source_x_0 = analog.sig_source_c(48000, analog.GR_SQR_WAVE, 20000, 2.5, 0, 0)
+        self.analog_noise_source_x_0 = analog.noise_source_c(analog.GR_GAUSSIAN, 2.5, 0)
+        self.analog_fastnoise_source_x_0 = analog.fastnoise_source_c(analog.GR_GAUSSIAN, 2.5, 0, 8192)
 
 
         ##################################################
