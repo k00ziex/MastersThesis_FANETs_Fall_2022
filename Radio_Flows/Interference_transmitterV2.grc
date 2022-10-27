@@ -44,10 +44,10 @@ blocks:
     outputmsgname: value
     rangeType: float
     showports: 'False'
-    start: '0'
+    start: '10'
     step: '1'
     stop: '90'
-    value: '20'
+    value: '40'
     widget: counter_slider
   states:
     bus_sink: false
@@ -70,7 +70,7 @@ blocks:
     start: '20000'
     step: '100'
     stop: '100000'
-    value: '20000'
+    value: '48000'
     widget: counter_slider
   states:
     bus_sink: false
@@ -90,10 +90,10 @@ blocks:
     outputmsgname: value
     rangeType: float
     showports: 'False'
-    start: '2400000000'
+    start: '2450000000'
     step: '200000'
     stop: '2500000000'
-    value: '2450000000'
+    value: '2462000000'
     widget: counter_slider
   states:
     bus_sink: false
@@ -162,7 +162,7 @@ blocks:
     bus_structure: null
     coordinate: [200, 176.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: band_pass_filter_0
   id: band_pass_filter
   parameters:
@@ -171,8 +171,8 @@ blocks:
     beta: '6.76'
     comment: ''
     decim: '1'
-    gain: '4'
-    high_cutoff_freq: '14000'
+    gain: '2.5'
+    high_cutoff_freq: '3500'
     interp: '1'
     low_cutoff_freq: '1'
     maxoutbuf: '0'
@@ -228,7 +228,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    bw: samp_rate
+    bw: '200000000'
     comment: ''
     fc: tuning
     fftsize: '1024'
@@ -289,7 +289,7 @@ blocks:
     ant7: '"TX/RX"'
     ant8: '"TX/RX"'
     ant9: '"TX/RX"'
-    bw0: '0'
+    bw0: '200000000'
     bw1: '0'
     bw10: '0'
     bw11: '0'
@@ -528,7 +528,7 @@ blocks:
     bus_structure: null
     coordinate: [1048, 376.0]
     rotation: 0
-    state: disabled
+    state: enabled
 
 connections:
 - [analog_fastnoise_source_x_0, '0', channels_phase_noise_gen_0, '0']

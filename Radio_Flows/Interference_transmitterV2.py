@@ -36,6 +36,8 @@ import signal
 from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
+from gnuradio import uhd
+import time
 from gnuradio.qtgui import Range, GrRangeWidget
 from PyQt5 import QtCore
 
@@ -79,30 +81,46 @@ class Interference_transmitterV2(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.tuning = tuning = 2450000000
-        self.samp_rate = samp_rate = 20000
-        self.rf_gain = rf_gain = 20
+        self.tuning = tuning = 2462000000
+        self.samp_rate = samp_rate = 48000
+        self.rf_gain = rf_gain = 40
 
         ##################################################
         # Blocks
         ##################################################
-        self._tuning_range = Range(2400000000, 2500000000, 200000, 2450000000, 200)
+        self._tuning_range = Range(2450000000, 2500000000, 200000, 2462000000, 200)
         self._tuning_win = GrRangeWidget(self._tuning_range, self.set_tuning, "Frequency", "counter_slider", float, QtCore.Qt.Horizontal, "value")
 
         self.top_layout.addWidget(self._tuning_win)
-        self._samp_rate_range = Range(20000, 100000, 100, 20000, 200)
+        self._samp_rate_range = Range(20000, 100000, 100, 48000, 200)
         self._samp_rate_win = GrRangeWidget(self._samp_rate_range, self.set_samp_rate, "Sample rate", "counter_slider", float, QtCore.Qt.Horizontal, "value")
 
         self.top_layout.addWidget(self._samp_rate_win)
-        self._rf_gain_range = Range(0, 90, 1, 20, 200)
+        self._rf_gain_range = Range(10, 90, 1, 40, 200)
         self._rf_gain_win = GrRangeWidget(self._rf_gain_range, self.set_rf_gain, "RF Gain", "counter_slider", float, QtCore.Qt.Horizontal, "value")
 
         self.top_layout.addWidget(self._rf_gain_win)
+        self.uhd_usrp_sink_0 = uhd.usrp_sink(
+            ",".join(("", '')),
+            uhd.stream_args(
+                cpu_format="fc32",
+                args='',
+                channels=list(range(0,1)),
+            ),
+            "",
+        )
+        self.uhd_usrp_sink_0.set_samp_rate(samp_rate)
+        # No synchronization enforced.
+
+        self.uhd_usrp_sink_0.set_center_freq(tuning, 0)
+        self.uhd_usrp_sink_0.set_antenna("TX/RX", 0)
+        self.uhd_usrp_sink_0.set_bandwidth(200000000, 0)
+        self.uhd_usrp_sink_0.set_gain(rf_gain, 0)
         self.qtgui_sink_x_0 = qtgui.sink_c(
             1024, #fftsize
             window.WIN_BLACKMAN_hARRIS, #wintype
             tuning, #fc
-            samp_rate, #bw
+            200000000, #bw
             "", #name
             True, #plotfreq
             True, #plotwaterfall
@@ -121,10 +139,10 @@ class Interference_transmitterV2(gr.top_block, Qt.QWidget):
         self.band_pass_filter_0 = filter.fir_filter_ccf(
             1,
             firdes.band_pass(
-                4,
+                2.5,
                 48000,
                 1,
-                14000,
+                3500,
                 1,
                 window.WIN_HAMMING,
                 6.76))
@@ -136,10 +154,12 @@ class Interference_transmitterV2(gr.top_block, Qt.QWidget):
         ##################################################
         # Connections
         ##################################################
+        self.msg_connect((self.qtgui_sink_x_0, 'freq'), (self.uhd_usrp_sink_0, 'command'))
         self.connect((self.analog_fastnoise_source_x_0, 0), (self.channels_phase_noise_gen_0, 0))
         self.connect((self.analog_noise_source_x_0, 0), (self.blocks_add_xx_0, 1))
         self.connect((self.analog_sig_source_x_0, 0), (self.blocks_add_xx_0, 0))
         self.connect((self.band_pass_filter_0, 0), (self.qtgui_sink_x_0, 0))
+        self.connect((self.band_pass_filter_0, 0), (self.uhd_usrp_sink_0, 0))
         self.connect((self.blocks_add_xx_0, 0), (self.band_pass_filter_0, 0))
         self.connect((self.channels_phase_noise_gen_0, 0), (self.blocks_add_xx_0, 2))
 
@@ -157,20 +177,22 @@ class Interference_transmitterV2(gr.top_block, Qt.QWidget):
 
     def set_tuning(self, tuning):
         self.tuning = tuning
-        self.qtgui_sink_x_0.set_frequency_range(self.tuning, self.samp_rate)
+        self.qtgui_sink_x_0.set_frequency_range(self.tuning, 200000000)
+        self.uhd_usrp_sink_0.set_center_freq(self.tuning, 0)
 
     def get_samp_rate(self):
         return self.samp_rate
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.qtgui_sink_x_0.set_frequency_range(self.tuning, self.samp_rate)
+        self.uhd_usrp_sink_0.set_samp_rate(self.samp_rate)
 
     def get_rf_gain(self):
         return self.rf_gain
 
     def set_rf_gain(self, rf_gain):
         self.rf_gain = rf_gain
+        self.uhd_usrp_sink_0.set_gain(self.rf_gain, 0)
 
 
 
