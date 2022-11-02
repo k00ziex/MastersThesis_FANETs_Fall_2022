@@ -11,7 +11,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: Interference_transmitter
+    id: Interference_transmitterV2
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -22,7 +22,7 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: Interference Transmitter
+    title: Interference Transmitter V2
     window_size: (1000,1000)
   states:
     bus_sink: false
@@ -44,28 +44,39 @@ blocks:
     outputmsgname: value
     rangeType: float
     showports: 'False'
-    start: '0'
+    start: '10'
     step: '1'
-    stop: '76'
-    value: '50'
+    stop: '90'
+    value: '40'
     widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 8.0]
+    coordinate: [8, 272.0]
     rotation: 0
     state: true
 - name: samp_rate
-  id: variable
+  id: variable_qtgui_range
   parameters:
     comment: ''
+    gui_hint: ''
+    label: Sample rate
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    outputmsgname: value
+    rangeType: float
+    showports: 'False'
+    start: '20000'
+    step: '100'
+    stop: '100000'
     value: '48000'
+    widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [232, 28.0]
+    coordinate: [8, 120.0]
     rotation: 0
     state: true
 - name: tuning
@@ -79,7 +90,7 @@ blocks:
     outputmsgname: value
     rangeType: float
     showports: 'False'
-    start: '2400000000'
+    start: '2450000000'
     step: '200000'
     stop: '2500000000'
     value: '2462000000'
@@ -88,73 +99,128 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [360, 8.0]
+    coordinate: [8, 424.0]
     rotation: 0
     state: true
-- name: analog_nbfm_tx_0
-  id: analog_nbfm_tx
+- name: analog_fastnoise_source_x_0
+  id: analog_fastnoise_source_x
   parameters:
     affinity: ''
     alias: ''
-    audio_rate: samp_rate
+    amp: '2.5'
     comment: ''
-    fh: '-1.0'
-    max_dev: '5000'
     maxoutbuf: '0'
     minoutbuf: '0'
-    quad_rate: '576000'
-    tau: 75e-6
+    noise_type: analog.GR_GAUSSIAN
+    samples: '8192'
+    seed: '0'
+    type: complex
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [448, 288.0]
+    coordinate: [200, 420.0]
     rotation: 0
     state: true
+- name: analog_noise_source_x_0
+  id: analog_noise_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    amp: '2.5'
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    noise_type: analog.GR_GAUSSIAN
+    seed: '0'
+    type: complex
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 324.0]
+    rotation: 0
+    state: enabled
 - name: analog_sig_source_x_0
   id: analog_sig_source_x
   parameters:
     affinity: ''
     alias: ''
-    amp: '1'
+    amp: '2.5'
     comment: ''
-    freq: tuning
+    freq: '20000'
     maxoutbuf: '0'
     minoutbuf: '0'
     offset: '0'
     phase: '0'
-    samp_rate: samp_rate
-    type: float
-    waveform: analog.GR_SAW_WAVE
+    samp_rate: '48000'
+    type: complex
+    waveform: analog.GR_SQR_WAVE
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [56, 280.0]
+    coordinate: [200, 176.0]
     rotation: 0
-    state: true
-- name: low_pass_filter_0
-  id: low_pass_filter
+    state: enabled
+- name: band_pass_filter_0
+  id: band_pass_filter
   parameters:
     affinity: ''
     alias: ''
     beta: '6.76'
     comment: ''
-    cutoff_freq: '5000'
     decim: '1'
-    gain: '1'
+    gain: '2.5'
+    high_cutoff_freq: '3500'
     interp: '1'
+    low_cutoff_freq: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
-    samp_rate: samp_rate
+    samp_rate: '48000'
     type: fir_filter_ccf
-    width: '2000'
+    width: '1'
     win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [784, 272.0]
+    coordinate: [800, 132.0]
+    rotation: 0
+    state: true
+- name: blocks_add_xx_0
+  id: blocks_add_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '3'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [664, 296.0]
+    rotation: 0
+    state: enabled
+- name: channels_phase_noise_gen_0
+  id: channels_phase_noise_gen
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha: '0.1'
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    noise_mag: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [440, 436.0]
     rotation: 0
     state: true
 - name: qtgui_sink_x_0
@@ -162,14 +228,14 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    bw: samp_rate
+    bw: '200000000'
     comment: ''
     fc: tuning
     fftsize: '1024'
     gui_hint: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    name: Spectrum Analyzer
+    name: '""'
     plotconst: 'True'
     plotfreq: 'True'
     plottime: 'True'
@@ -183,7 +249,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1056, 192.0]
+    coordinate: [1048, 72.0]
     rotation: 0
     state: true
 - name: uhd_usrp_sink_0
@@ -223,7 +289,7 @@ blocks:
     ant7: '"TX/RX"'
     ant8: '"TX/RX"'
     ant9: '"TX/RX"'
-    bw0: '0'
+    bw0: '200000000'
     bw1: '0'
     bw10: '0'
     bw11: '0'
@@ -255,7 +321,7 @@ blocks:
     bw7: '0'
     bw8: '0'
     bw9: '0'
-    center_freq0: '0'
+    center_freq0: tuning
     center_freq1: '0'
     center_freq10: '0'
     center_freq11: '0'
@@ -299,7 +365,7 @@ blocks:
     comment: ''
     dev_addr: '""'
     dev_args: ''
-    gain0: '0'
+    gain0: rf_gain
     gain1: '0'
     gain10: '0'
     gain11: '0'
@@ -446,7 +512,7 @@ blocks:
     start_time: '-1.0'
     stream_args: ''
     stream_chans: '[]'
-    sync: sync
+    sync: none
     time_source0: ''
     time_source1: ''
     time_source2: ''
@@ -460,15 +526,19 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1088, 400.0]
+    coordinate: [1048, 376.0]
     rotation: 0
     state: disabled
 
 connections:
-- [analog_nbfm_tx_0, '0', low_pass_filter_0, '0']
-- [analog_sig_source_x_0, '0', analog_nbfm_tx_0, '0']
-- [low_pass_filter_0, '0', qtgui_sink_x_0, '0']
-- [low_pass_filter_0, '0', uhd_usrp_sink_0, '0']
+- [analog_fastnoise_source_x_0, '0', channels_phase_noise_gen_0, '0']
+- [analog_noise_source_x_0, '0', blocks_add_xx_0, '1']
+- [analog_sig_source_x_0, '0', blocks_add_xx_0, '0']
+- [band_pass_filter_0, '0', qtgui_sink_x_0, '0']
+- [band_pass_filter_0, '0', uhd_usrp_sink_0, '0']
+- [blocks_add_xx_0, '0', band_pass_filter_0, '0']
+- [channels_phase_noise_gen_0, '0', blocks_add_xx_0, '2']
+- [qtgui_sink_x_0, freq, uhd_usrp_sink_0, command]
 
 metadata:
   file_format: 1
