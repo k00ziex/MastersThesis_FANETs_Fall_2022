@@ -1,0 +1,121 @@
+____________________________START_______________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=1 ttl=64 time=63.2 ms 64 bytes from 10.1.0.7: icmp_req=2 ttl=64 time=2.16 ms 64 bytes from 10.1.0.7: icmp_req=3 ttl=64 time=2.17 ms 64 bytes from 10.1.0.7: icmp_req=4 ttl=64 time=83.1 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=4.00 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=2.66 ms 64 bytes from 10.1.0.7: icmp_req=9 ttl=64 time=1009 ms 64 bytes from 10.1.0.7: icmp_req=10 ttl=64 time=3.37 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 8 received, 20% packet loss, time 9085ms rtt min/avg/max/mdev = 2.165/146.350/1009.938/327.795 ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 60 ms rx bytes: 22994128 rx packets: 205004 tx bytes: 270261553 tx packets: 177684 tx retries: 43362 tx failed: 7141 rx drop misc: 347 signal: -80 [-80] dBm signal avg: -79 [-79] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:12 dBm expected throughput: 11.168Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6039 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 7841 seqno: 38 p: 32% stale: 0 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 38 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 7 : 52%/ 17% 0%/ 0% 0%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=4 ttl=64 time=1769 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=969 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=2.17 ms 64 bytes from 10.1.0.7: icmp_req=7 ttl=64 time=2.84 ms 64 bytes from 10.1.0.7: icmp_req=8 ttl=64 time=2.18 ms 64 bytes from 10.1.0.7: icmp_req=9 ttl=64 time=167 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 6 received, 40% packet loss, time 9151ms rtt min/avg/max/mdev = 2.171/485.827/1769.988/669.019 ms, pipe 2
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 40 ms rx bytes: 23016633 rx packets: 205306 tx bytes: 270266051 tx packets: 177712 tx retries: 43402 tx failed: 7148 rx drop misc: 348 signal: -80 [-80] dBm signal avg: -79 [-79] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:13 dBm expected throughput: 6.682Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6053 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 65535 seqno: 65 p: 0% stale: 1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 65 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 16 : 61%/ 0% 0%/ 0% 0%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. --- 10.1.0.7 ping statistics --- 10 packets transmitted, 0 received, 100% packet loss, time 9354ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 50 ms rx bytes: 23042250 rx packets: 205698 tx bytes: 270266051 tx packets: 177712 tx retries: 43402 tx failed: 7148 rx drop misc: 348 signal: -77 [-77] dBm signal avg: -78 [-78] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:13 dBm expected throughput: 6.682Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6073 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 3920 seqno: 106 p: 2% stale: 1 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs4x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 106 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 7 : 67%/ 18% 38%/ 1% 38%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=2 ttl=64 time=2.19 ms 64 bytes from 10.1.0.7: icmp_req=7 ttl=64 time=1006 ms 64 bytes from 10.1.0.7: icmp_req=9 ttl=64 time=969 ms 64 bytes from 10.1.0.7: icmp_req=10 ttl=64 time=206 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 4 received, 60% packet loss, time 9345ms rtt min/avg/max/mdev = 2.190/546.246/1006.776/448.160 ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 60 ms rx bytes: 23065221 rx packets: 206013 tx bytes: 270269397 tx packets: 177735 tx retries: 43423 tx failed: 7153 rx drop misc: 349 signal: -77 [-77] dBm signal avg: -77 [-77] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:15 dBm expected throughput: 8.879Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6086 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 7841 seqno: 128 p: 8% stale: 4 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 128 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 2 : 69%/ 51% 29%/ 3% 29%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=1 ttl=64 time=203 ms 64 bytes from 10.1.0.7: icmp_req=2 ttl=64 time=2.10 ms 64 bytes from 10.1.0.7: icmp_req=3 ttl=64 time=2.33 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=956 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=205 ms 64 bytes from 10.1.0.7: icmp_req=7 ttl=64 time=2.14 ms 64 bytes from 10.1.0.7: icmp_req=8 ttl=64 time=209 ms 64 bytes from 10.1.0.7: icmp_req=10 ttl=64 time=919 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 8 received, 20% packet loss, time 9108ms rtt min/avg/max/mdev = 2.101/312.734/956.128/371.797 ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 100 ms rx bytes: 23083080 rx packets: 206260 tx bytes: 270272880 tx packets: 177757 tx retries: 43443 tx failed: 7158 rx drop misc: 349 signal: -80 [-80] dBm signal avg: -78 [-78] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:12 dBm expected throughput: 6.682Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6098 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 984 seqno: 153 p: 68% stale: 4 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 153 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 1 : 63%/ 63% 19%/ 13% 13%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=1 ttl=64 time=373 ms 64 bytes from 10.1.0.7: icmp_req=2 ttl=64 time=4.58 ms 64 bytes from 10.1.0.7: icmp_req=3 ttl=64 time=428 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=1080 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=55.8 ms 64 bytes from 10.1.0.7: icmp_req=7 ttl=64 time=2.15 ms 64 bytes from 10.1.0.7: icmp_req=9 ttl=64 time=725 ms 64 bytes from 10.1.0.7: icmp_req=10 ttl=64 time=112 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 8 received, 20% packet loss, time 9142ms rtt min/avg/max/mdev = 2.152/347.858/1080.048/364.723 ms, pipe 2
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 90 ms rx bytes: 23107047 rx packets: 206576 tx bytes: 270277776 tx packets: 177787 tx retries: 43470 tx failed: 7164 rx drop misc: 349 signal: -78 [-78] dBm signal avg: -77 [-77] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:14 dBm expected throughput: 13.366Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6110 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 830 seqno: 181 p: 74% stale: 0 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 181 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 1 : 77%/ 73% 7%/ 7% 6%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=1 ttl=64 time=3.65 ms 64 bytes from 10.1.0.7: icmp_req=2 ttl=64 time=2.14 ms 64 bytes from 10.1.0.7: icmp_req=3 ttl=64 time=264 ms 64 bytes from 10.1.0.7: icmp_req=4 ttl=64 time=2.16 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=2.13 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=57.0 ms 64 bytes from 10.1.0.7: icmp_req=7 ttl=64 time=345 ms 64 bytes from 10.1.0.7: icmp_req=8 ttl=64 time=72.8 ms 64 bytes from 10.1.0.7: icmp_req=9 ttl=64 time=295 ms 64 bytes from 10.1.0.7: icmp_req=10 ttl=64 time=4.95 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 10 received, 0% packet loss, time 9009ms rtt min/avg/max/mdev = 2.136/105.024/345.647/132.225 ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 70 ms rx bytes: 23123088 rx packets: 206795 tx bytes: 270281183 tx packets: 177808 tx retries: 43487 tx failed: 7168 rx drop misc: 350 signal: -78 [-78] dBm signal avg: -77 [-77] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:12 dBm expected throughput: 13.366Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6120 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 768 seqno: 200 p: 76% stale: 2 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 200 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 3 : 77%/ 73% 5%/ 5% 4%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=1 ttl=64 time=2.28 ms 64 bytes from 10.1.0.7: icmp_req=2 ttl=64 time=6.45 ms 64 bytes from 10.1.0.7: icmp_req=3 ttl=64 time=44.5 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=810 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=2.14 ms 64 bytes from 10.1.0.7: icmp_req=7 ttl=64 time=83.3 ms 64 bytes from 10.1.0.7: icmp_req=8 ttl=64 time=69.3 ms 64 bytes from 10.1.0.7: icmp_req=10 ttl=64 time=929 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 8 received, 20% packet loss, time 9100ms rtt min/avg/max/mdev = 2.143/243.525/929.957/364.061 ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 30 ms rx bytes: 23145718 rx packets: 207079 tx bytes: 270285223 tx packets: 177831 tx retries: 43503 tx failed: 7171 rx drop misc: 350 signal: -79 [-79] dBm signal avg: -79 [-79] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:15 dBm expected throughput: 13.366Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6132 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 1045 seqno: 222 p: 65% stale: 4 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 222 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 2 : 71%/ 71% 2%/ 7% 2%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=1 ttl=64 time=2.25 ms 64 bytes from 10.1.0.7: icmp_req=2 ttl=64 time=7.81 ms 64 bytes from 10.1.0.7: icmp_req=3 ttl=64 time=3.14 ms 64 bytes from 10.1.0.7: icmp_req=4 ttl=64 time=2.33 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=3.15 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=2.20 ms 64 bytes from 10.1.0.7: icmp_req=7 ttl=64 time=2.12 ms 64 bytes from 10.1.0.7: icmp_req=8 ttl=64 time=2.13 ms 64 bytes from 10.1.0.7: icmp_req=9 ttl=64 time=2.91 ms 64 bytes from 10.1.0.7: icmp_req=10 ttl=64 time=2.11 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 10 received, 0% packet loss, time 9014ms rtt min/avg/max/mdev = 2.113/3.017/7.814/1.649 ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 30 ms rx bytes: 23162794 rx packets: 207310 tx bytes: 270289386 tx packets: 177854 tx retries: 43513 tx failed: 7173 rx drop misc: 350 signal: -79 [-79] dBm signal avg: -78 [-78] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:15 dBm expected throughput: 13.366Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6143 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 799 seqno: 245 p: 76% stale: 1 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 245 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 2 : 71%/ 75% 1%/ 3% 1%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=1 ttl=64 time=2.26 ms 64 bytes from 10.1.0.7: icmp_req=2 ttl=64 time=4.07 ms 64 bytes from 10.1.0.7: icmp_req=3 ttl=64 time=2.18 ms 64 bytes from 10.1.0.7: icmp_req=4 ttl=64 time=5.37 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=2.24 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=78.5 ms 64 bytes from 10.1.0.7: icmp_req=7 ttl=64 time=2.16 ms 64 bytes from 10.1.0.7: icmp_req=10 ttl=64 time=829 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 8 received, 20% packet loss, time 9113ms rtt min/avg/max/mdev = 2.164/115.852/829.956/271.037 ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 110 ms rx bytes: 23181677 rx packets: 207556 tx bytes: 270293983 tx packets: 177878 tx retries: 43528 tx failed: 7174 rx drop misc: 350 signal: -78 [-78] dBm signal avg: -78 [-78] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:16 dBm expected throughput: 8.879Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6154 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 1168 seqno: 11 p: 61% stale: 1 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 11 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 5 : 66%/ 47% 1%/ 1% 1%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=1 ttl=64 time=6.87 ms 64 bytes from 10.1.0.7: icmp_req=2 ttl=64 time=2.70 ms 64 bytes from 10.1.0.7: icmp_req=3 ttl=64 time=2.19 ms 64 bytes from 10.1.0.7: icmp_req=4 ttl=64 time=2.81 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=3.82 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=7.15 ms 64 bytes from 10.1.0.7: icmp_req=7 ttl=64 time=2.55 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 7 received, 30% packet loss, time 9100ms rtt min/avg/max/mdev = 2.195/4.017/7.158/1.952 ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 80 ms rx bytes: 23197592 rx packets: 207779 tx bytes: 270296809 tx packets: 177894 tx retries: 43549 tx failed: 7177 rx drop misc: 351 signal: -79 [-79] dBm signal avg: -78 [-78] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:15 dBm expected throughput: 6.682Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6165 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 891 seqno: 34 p: 71% stale: 1 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 34 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 2 : 59%/ 70% 0%/ 1% 0%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. 64 bytes from 10.1.0.7: icmp_req=3 ttl=64 time=510 ms 64 bytes from 10.1.0.7: icmp_req=5 ttl=64 time=930 ms 64 bytes from 10.1.0.7: icmp_req=6 ttl=64 time=3.05 ms 64 bytes from 10.1.0.7: icmp_req=8 ttl=64 time=509 ms 64 bytes from 10.1.0.7: icmp_req=10 ttl=64 time=1180 ms --- 10.1.0.7 ping statistics --- 10 packets transmitted, 5 received, 50% packet loss, time 9299ms rtt min/avg/max/mdev = 3.052/626.641/1180.155/403.604 ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 1030 ms rx bytes: 23211492 rx packets: 207965 tx bytes: 270301696 tx packets: 177923 tx retries: 43588 tx failed: 7183 rx drop misc: 351 signal: -82 [-82] dBm signal avg: -81 [-81] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:12 dBm expected throughput: 6.682Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6177 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 7841 seqno: 53 p: 3% stale: 7 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 53 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 16 : 37%/ 0% 0%/ 0% 0%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. --- 10.1.0.7 ping statistics --- 10 packets transmitted, 0 received, 100% packet loss, time 9396ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 20 ms rx bytes: 23221150 rx packets: 208111 tx bytes: 270302751 tx packets: 177931 tx retries: 43623 tx failed: 7188 rx drop misc: 351 signal: -83 [-83] dBm signal avg: -80 [-80] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:10 dBm expected throughput: 2.197Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6198 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 7841 seqno: 93 p: 47% stale: 8 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 93 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 7 : 53%/ 14% 38%/ 0% 33%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. --- 10.1.0.7 ping statistics --- 10 packets transmitted, 0 received, 100% packet loss, time 9388ms
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 60 ms rx bytes: 23238096 rx packets: 208366 tx bytes: 270307550 tx packets: 177964 tx retries: 43683 tx failed: 7199 rx drop misc: 351 signal: -80 [-80] dBm signal avg: -79 [-79] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:10 dBm expected throughput: 11.168Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6218 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 7841 seqno: 137 p: 18% stale: 5 via e4:95:6e:4e:3d:a4 (255) iface: mon-phy0 rate: mcs2x1 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 137 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 3 : 40%/ 72% 17%/ 0% 11%/ 0%
+___________________________END__________________________________
+PING 10.1.0.7 (10.1.0.7) 56(84) bytes of data. From 10.1.0.4 icmp_seq=1 Destination Host Unreachable From 10.1.0.4 icmp_seq=2 Destination Host Unreachable From 10.1.0.4 icmp_seq=3 Destination Host Unreachable From 10.1.0.4 icmp_seq=4 Destination Host Unreachable From 10.1.0.4 icmp_seq=5 Destination Host Unreachable From 10.1.0.4 icmp_seq=6 Destination Host Unreachable From 10.1.0.4 icmp_seq=7 Destination Host Unreachable From 10.1.0.4 icmp_seq=8 Destination Host Unreachable From 10.1.0.4 icmp_seq=9 Destination Host Unreachable From 10.1.0.4 icmp_seq=10 Destination Host Unreachable --- 10.1.0.7 ping statistics --- 10 packets transmitted, 0 received, +10 errors, 100% packet loss, time 9343ms pipe 4
+----------------------------------------------------------------
+Station e4:95:6e:4e:3d:a4 (on wlan0) inactive time: 70 ms rx bytes: 23245921 rx packets: 208485 tx bytes: 270307550 tx packets: 177964 tx retries: 43683 tx failed: 7199 rx drop misc: 351 signal: -81 [-81] dBm signal avg: -80 [-80] dBm tx bitrate: 1.0 MBit/s rx bitrate: 19.5 MBit/s MCS 2 rx duration: 0 us last ack signal:10 dBm expected throughput: 11.168Mbps authorized: yes authenticated: yes associated: yes preamble: long WMM/WME: yes MFP: no TDLS peer: no DTIM period: 0 beacon interval:100 connected time: 6232 seconds
+----------------------------------------------------------------
+e4:95:6e:4e:3d:a4 metric 65535 seqno: 156 p: 0% stale: 13 relay e4:95:6e:4e:3d:a4 metric 0 seqno: 156 p: 100%
+----------------------------------------------------------------
+remote_iface remote_node type stale rx/tx: mcs2x1 mcs4x1 mcs6x1 e4:95:6e:4e:3d:a4 e4:95:6e:4e:3d:a4 wifi 9 : 49%/ 2% 49%/ 2% 49%/ 2%
+___________________________END__________________________________
