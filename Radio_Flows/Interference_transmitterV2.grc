@@ -171,7 +171,7 @@ blocks:
     beta: '6.76'
     comment: ''
     decim: '1'
-    gain: '2.5'
+    gain: '1'
     high_cutoff_freq: '3500'
     interp: '1'
     low_cutoff_freq: '1'
@@ -528,7 +528,7 @@ blocks:
     bus_structure: null
     coordinate: [1048, 376.0]
     rotation: 0
-    state: disabled
+    state: enabled
 
 connections:
 - [analog_fastnoise_source_x_0, '0', channels_phase_noise_gen_0, '0']
