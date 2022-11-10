@@ -1,0 +1,2 @@
+Relay node - 40 meter from source
+So each measurement is 40m + measurement distance
