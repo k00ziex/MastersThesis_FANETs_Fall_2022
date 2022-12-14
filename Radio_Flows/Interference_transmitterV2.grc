@@ -44,7 +44,7 @@ blocks:
     outputmsgname: value
     rangeType: float
     showports: 'False'
-    start: '10'
+    start: '0'
     step: '1'
     stop: '90'
     value: '40'
