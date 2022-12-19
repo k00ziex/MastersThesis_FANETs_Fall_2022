@@ -23,9 +23,9 @@ During the experiments two files are created and annotated with the correspondin
 
 # Directory information:
 
-- Data_processing
-        - Data_Visualization.ipynb contains the data visualization code for the Master Thesis. It is herein that the different graphs, plots, etc. have been made.
-- Distance --> Contains the visualizations from the data retrieved in the experiments of the Master Thesis' section "Distance and Interference Characteristics" sub-scenarios 1 and 2 as well as the data itself.
+- **Data_processing**
+   - Data_Visualization.ipynb contains the data visualization code for the Master Thesis. It is herein that the different graphs, plots, etc. have been made.
+- **Distance:** Contains the visualizations from the data retrieved in the experiments of the Master Thesis' section "Distance and Interference Characteristics" sub-scenarios 1 and 2 as well as the data itself.
         - Dongle
             - Multi-hop --> Data for SS2 (GS1)
             - Multi-hop_interference --> Data for SS2 (GS2)
