@@ -7,7 +7,7 @@ The following sections briefly elaborate what can be found in the different dire
 ## Contact information of Authors: 
 ***Simon Zacher Høholt Jensen***
 - Email: 201270698@post.au.dk
-- 
+
 ***Andreas Vorgaard***
 - Email: 201705136@post.au.dk
 
