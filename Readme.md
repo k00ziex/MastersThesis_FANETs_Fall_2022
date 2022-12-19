@@ -20,6 +20,10 @@ During the experiments two files are created and annotated with the correspondin
 - results_[metric].txt
     - This contains other metrics from the experiment such as average RTT (via Ping command), Meshmerize Link output, Meshmerize Route output and more.
 
+*OBS:* Some folders contain folders named along the lines of *Old_data* or *New_data*. 
+- *Old_data* is a folder annotation for previous measurements of an experiment if something has failed during experimentation or other, and so to not lose all the old data it was put into this folder in case it was interesting to look at later. However, this is out of scope for the Master Thesis.
+- *New_data* is a folder annotation for the same scenario as above (but with newly taken data in the folder instead), but where it was easier to put the new data into a folder than to put the older data into a folder.
+
 
 # Directory and file information:
 
