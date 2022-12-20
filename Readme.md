@@ -27,6 +27,7 @@ During the experiments two files are created and annotated with the correspondin
 
 
 # Directory and file information:
+Below is the tree structure for the repository (with some subfolders and files left out due to readability) explaining what each folder/file contains and for some of them also describing how much importance that folder/file has had in relation to the Master Thesis connected to this repository.
 
 <pre><code>
 │   <i>constant_ping.sh:</i> Shell script for continuously pinging a host <b>NOT IMPORTANT FOR THESIS, WAS ONLY USED FOR INITIAL EXPERIMENTATION</b>
