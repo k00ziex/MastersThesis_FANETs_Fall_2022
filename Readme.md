@@ -39,6 +39,9 @@ Below is the tree structure for the repository (with some subfolders and files l
 │   <i>results.txt:</i> Example output of what the experiment_script.sh outputs
 ├───<b>Data_processing</b>
 │       <i>Data_Visualization.ipynb:</i> contains the data visualization code for the Master Thesis. It is herein that the different graphs, plots, etc. have been made.
+│       <i>.txt-files:</i> Contains the relevant extracted route data that is done in Jupyter notebook.
+│       <i>Route_data.xlsx:</i> Excel file containing the extracted route data used for visualizations.
+│   ├───<b>Route_Visualizations:</b> Contains the visualizations of the extracted route data from all of the experiments.
 ├───<b>Distance:</b> Contains the visualizations from the data retrieved in the experiments of the Master Thesis' section "Distance and Interference Characteristics" sub-scenarios 1 and 2 as well as the data itself.
 │   ├───<b>Dongle</b>
 │   │   ├───<b>Multi-hop:</b> Data for SS2 (GS1)
